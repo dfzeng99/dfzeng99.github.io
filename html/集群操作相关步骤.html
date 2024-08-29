@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="window-target" content="_top">
+    <title>Zdenfo的小破站-集群操作相关步骤</title>
+    <meta name="description" content="Zdenfo 的个人博客">
+    <meta name="keywords" content="计算数学; 科学计算; 机器学习; 计算机知识">
+    <link rel="icon" href="../resources/image/x-icon/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gitalk.min.css">
+    <link rel="stylesheet" href="../css/default.min.css">
+    <script src="../js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="../css/article.css">
+</head>
+
+<body class="main-center" itemscope="" itemtype="http://schema.org/WebPage">
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+        <div class="slimContent">
+            <div class="navbar-header">
+                <div class="profile-block text-center"><a id="avatar" href="https://gitee.com/zdenfo"
+                        target="_blank"><img class="img-circle img-rotate" src="../resources/image/x-icon/logo.png"
+                            width="200" height="200"></a>
+                    <h2 id="name" class="hidden-xs hidden-sm">Zdenfo</h2>
+                    <h3 id="title" class="hidden-xs hidden-sm hidden-md">Student &amp; Worker</h3><small id="location"
+                        class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>
+                        Shanghai, China</small>
+                </div>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar"
+                    aria-controls="main-navbar" aria-expanded="false">
+                    <span class="sr-only">
+                        Toggle navigation
+                    </span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <nav id="main-navbar" class="collapse navbar-collapse" itemscope=""
+                itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+                <ul class="nav navbar-nav main-nav">
+                    <li class="menu-item menu-item-home"><a href="../index.html"><i class="icon icon-home-fill"></i>
+                            <span class="menu-title">首页</span></a></li>
+                    <li class="menu-item menu-item-repository"><a href="../projects.html"><i class="icon icon-project"></i>
+                            <span class="menu-title">项目</span></a></li>
+                    <li class="menu-item menu-item-books"><a href="../readlist.html"><i class="icon icon-book-fill"></i>
+                            <span class="menu-title">书单</span></a></li>
+                    <li class="menu-item menu-item-links"><a href="../talk.html"><i class="icon icon-friendship"></i>
+                            <span class="menu-title">闲言碎语</span></a></li>
+                    <li class="menu-item menu-item-about"><a href="../about.html"><i class="icon icon-cup-fill"></i>
+                            <span class="menu-title">关于</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <aside class="sidebar" itemscope="" itemtype="http://schema.org/WPSideBar">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 815px;">
+            <div class="slimContent" style="overflow: hidden; width: auto; height: 815px;">
+                <div class="widget">
+                    <h3 class="widget-title">公告</h3>
+                    <div class="widget-body">
+                        <div id="board">
+                            <div class="content">
+                                我的小破站终于初具雏形了!!!!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.15); 
+                        width: 5px; 
+                        position: absolute; 
+                        top: 0px; 
+                        opacity: 0.4; 
+                        display: none; 
+                        border-radius: 7px; 
+                        z-index: 99; 
+                        right: 1px; 
+                        height: 436.99px;">
+            </div>
+            <div class="slimScrollRail" style="width: 5px; 
+                        height: 100%; 
+                        position: absolute; 
+                        top: 0px; 
+                        display: none; 
+                        border-radius: 7px; 
+                        background: rgb(51, 51, 51); 
+                        opacity: 0.2; 
+                        z-index: 90; 
+                        right: 1px;">
+            </div>
+        </div>
+    </aside>
+
+    <!--文章正文-->
+    <main class="main has-sticky" role="main">
+        <div class="content">
+            <article id="post-集群操作相关步骤" class="article article-type-post" itemscope=""
+                itemtype="http://schema.org/BlogPosting">
+                <div class="article-header">
+                    <h1 class="article-title" itemprop="name">集群操作相关步骤</h1> <!--标题-->
+                    <div class="article-meta">
+                        <span class="article-date">
+                            <i class="icon icon-calendar-check"></i>
+                            <a href="#" class="article-date"><time datetime="2023-02-09"
+                                    itemprop="datePublished">2023年08月25日</time></a> <!--发布日期-->
+                        </span>
+                        <span class="article-category">
+                            <i class="icon icon-folder"></i>
+                            <a class="article-category-link" href="">计算机</a> <!--大标签-->
+                        </span>
+                        <span class="article-tag">
+                            <i class="icon icon-tags"></i>
+                            <a class="article-tag-link" href="">操作指南</a> <!--小标签-->
+                        </span>
+                        <span class="post-wordcount hidden-xs" itemprop="wordCount"> <!--字数统计-->
+                            字数统计: 356(字)
+                        </span>
+                    </div>
+                </div>
+                <div class="article-entry marked-body" itemprop="articleBody">
+                    <!--放置转换的无格式html代码-->
+                    <h3 id='一集群连接与操作'>一、集群连接与操作</h3>
+<p>在集群网页端操作新建用户：</p>
+<pre><code class='language-shell' lang='shell'>adduser dfzeng
+</code></pre>
+<p>并开启ssh服务:</p>
+<pre><code class='language-shell' lang='shell'>service ssh start
+</code></pre>
+<p>在个人电脑端使用ssh连接集群服务器(注：学校的集群需要连接校园网才能使用)：</p>
+<pre><code class='language-shell' lang='shell'>ssh -p 17158 dfzeng@10.10.164.243
+</code></pre>
+<p>从本地上传文件到集群(拷贝文件夹加上<code>-r</code>)：</p>
+<pre><code class='language-shell' lang='shell'>scp -P 17158 .\file.py dfzeng@10.10.164.243:/home/dfzeng/
+</code></pre>
+<p>从集群拷贝到本地(拷贝文件夹加上<code>-r</code>)：</p>
+<pre><code class='language-shell' lang='shell'>scp -P 17158 dfzeng@10.10.164.244:/home/dfzeng/file.py .\
+</code></pre>
+<p>后台运行程序：</p>
+<pre><code class='language-shell' lang='shell'>CUDA_VISIBLE_DEVICES=0 nohup python3 -u main_1d.py --weight_path $WEIGHT_PATH --gpu_id 0 &gt; train.log 2&gt;&amp;1 &amp;
+</code></pre>
+<h3 id='二设置vscode的remote-ssh连接集群'>二、设置vscode的remote-ssh连接集群</h3>
+<p>由于集群无法连接外网，这里展示离线安装vscode-server. 首先，在本地的vscode上设置好remote-ssh连接后会显示需要远程安装<code>vscode-server-linux-x64.tar.gz</code>，但一般无法正常下载，我们需要在本地下载好后，再上传到集群。</p>
+<ol start='' >
+<li><p>连接到集群后，进入集群文件夹查看id：</p>
+<pre><code class='language-shell' lang='shell'>cd ~/.vscode-server/bin
+</code></pre>
+<p>拷贝下commit-id。</p>
+</li>
+<li><p>在浏览器中打开以下网址(将${commit_id}替换成对应值)下载<code>vscode-server-linux-x64.tar.gz</code>：</p>
+<pre><code class='language-shell' lang='shell'>https://update.code.visualstudio.com/commit:${commit_id}/server-linux-x64/stable
+</code></pre>
+</li>
+<li><p>将文件上传到文件夹<code>~/.vscode-server/bin/${commit_id}</code>并解压缩到当前文件夹：</p>
+<pre><code class='language-shell' lang='shell'>tar -zxf vscode-server-linux-x64.tar.gz
+</code></pre>
+</li>
+
+</ol>
+<p>到目前为止就将vscode-server安装好了，再本地的vscode上连接集群输入密码即可使用集群工作了。</p>
+                </div>
+                <div class="article-footer">
+                    <blockquote class="mt-2x">
+                        <ul class="post-copyright list-unstyled">
+                            <li class="post-copyright-link hidden-xs"><strong>本文链接：</strong> <a
+                                    href="https://zdenfo.gitee.io/html/集群操作相关步骤.html"
+                                    title="集群操作相关步骤" target="_blank"
+                                    rel="external">https://zdenfo.gitee.io/html/集群操作相关步骤.html</a></li>
+                            <li class="post-copyright-license"><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a
+                                    href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank"
+                                    rel="external">CC BY 4.0
+                                    CN协议</a> 许可协议。转载请注明出处！</li>
+                        </ul>
+                    </blockquote>
+                </div>
+            </article>
+        </div>
+    </main>
+    <footer class="footer" itemscope="" itemtype="http://schema.org/WPFooter">
+        <ul class="social-links">
+            <li><a href="https://github.com/detsfin" target="_blank" title="" data-toggle="tooltip" data-placement="top"
+                    data-original-title="Github"><i class="icon icon-github"></i></a></li>
+            <li><a href="https://space.bilibili.com/141594781" target="_blank" title="" data-toggle="tooltip"
+                    data-placement="top" data-original-title="Weibo"><i class="icon icon-weibo"></i></a></li>
+            <li><a href="#" target="_blank" title="" data-toggle="tooltip" data-placement="top"
+                    data-original-title="Twitter"><i class="icon icon-qq"></i></a></li>
+            <li><a href="https://www.gitee.com/zdenfo" target="_blank" title="" data-toggle="tooltip"
+                    data-placement="top" data-original-title="Gitee"><i class="icon icon-gitee"></i></a></li>
+        </ul>
+        <div class="copyright">
+            <div class="publishby">Theme by <a href="https://github.com/cofess" target="_blank">cofess </a>base on <a
+                    href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.</div>
+        </div>
+    </footer>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/plugin.min.js"></script>
+</body>
+
+</html>
