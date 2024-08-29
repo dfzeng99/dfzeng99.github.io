@@ -3,11 +3,18 @@
     {
         "Title": "Dengfei's Personal Website",
         "Name": "Dengfei Zeng",
+        "Keywords": "Math; CS; UQ",
+        "Description": "Dengfei's Personal Website",
         "Professional": "Student&Worker",
-        "Location": "Shanghai, China"
+        "Location": "Shanghai, China",
+        "AsideTitle": "公告",
+        "AsideContent": "我的小破站终于初具雏形了!!!!"
     },
     "Link":
     {
-        "Github": "https://github.com/dfzeng99"
+        "Github": "https://github.com/dfzeng99",
+        "Weibo": "https://space.bilibili.com/141594781",
+        "Twitter": "#",
+        "Gitee": "https://www.gitee.com/zdenfo"
     }
 }
