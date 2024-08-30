@@ -25,18 +25,18 @@ class MainPage():
         temp += '<meta content="{}" name="description"/>'.format(self.setup['Info']['Description']) + '\n' # description
         temp += '<meta content="{}" name="keywords"/>'.format(self.setup['Info']['Keywords']) + '\n' # keywords
         # Basic Components
-        temp += '<link href="./resources/image/x-icon/logo.png" rel="icon" type="image/x-icon"/>' + '\n' # logo
-        temp += '<link href="./css/style.css" rel="stylesheet"/>' + '\n' # css files
-        temp += '<link href="./css/gitalk.min.css" rel="stylesheet"/>' + '\n'
-        temp += '<link href="./css/default.min.css" rel="stylesheet"/>' + '\n'
-        temp += '<link href="./css/article.css" rel="stylesheet"/>' + '\n'
-        temp += '<script src="./js/highlight.min.js"></script>' + '\n' # js files
+        temp += '<link href="{}/resources/image/x-icon/logo.png" rel="icon" type="image/x-icon"/>'.format(self.setup['Info']['Driver']) + '\n' # logo
+        temp += '<link href="{}/css/style.css" rel="stylesheet"/>'.format(self.setup['Info']['Driver']) + '\n' # css files
+        temp += '<link href="{}/css/gitalk.min.css" rel="stylesheet"/>'.format(self.setup['Info']['Driver']) + '\n'
+        temp += '<link href="{}/css/default.min.css" rel="stylesheet"/>'.format(self.setup['Info']['Driver']) + '\n'
+        temp += '<link href="{}/css/article.css" rel="stylesheet"/>'.format(self.setup['Info']['Driver']) + '\n'
+        temp += '<script src="{}/js/highlight.min.js"></script>'.format(self.setup['Info']['Driver']) + '\n' # js files
         temp += '<script>hljs.highlightAll();</script>'
         return '<head>'+'\n'+temp+'\n'+'</head>' 
 
     def __BodyHeader(self):
         avatar = '<a href="{}" id="avatar" target="_blank">'.format(self.setup['Link']['Github']) + '\n'\
-            + '<img class="img-circle img-rotate" height="200" src="./resources/image/x-icon/logo.png" width="200"/>' + '\n'\
+            + '<img class="img-circle img-rotate" height="200" src="{}/resources/image/x-icon/logo.png" width="200"/>'.format(self.setup['Info']['Driver']) + '\n'\
             +'</a>' + '\n'
         name = '<h2 class="hidden-xs hidden-sm" id="name">{}</h2>'.format(self.setup['Info']['Name']) + '\n'
         title = '<h3 class="hidden-xs hidden-sm hidden-md" id="title">{}</h3>'.format(self.setup['Info']['Professional']) + '\n'
@@ -52,13 +52,13 @@ class MainPage():
         # profile + button --> nav_header
         nav_header = '<div class="navbar-header">\n' + profile + button + '</div>\n'
 
-        herfs = ['./index.html', './projects.html', './readlist.html', './talk.html', './about.html']
+        herfs = ['/index.html', '/projects.html', '/readlist.html', '/talk.html', '/about.html']
         ids = ['首页', '项目', '书单', '闲言碎语', '关于']
         icons = ['icon-home-fill', 'icon-project', 'icon-book-fill', 'icon-friendship', 'icon-cup-fill']
         nav_list = ''
         for i in range(len(herfs)):
             nav_list += '<li class="menu-item menu-item-home">'\
-                +'<a href="{}">'.format(herfs[i])\
+                +'<a href="{}{}">'.format(self.setup['Info']['Driver'], herfs[i])\
                 +'<i class="icon {}"></i>'.format(icons[i])\
                 +'<span class="menu-title">{}</span>'.format(ids[i])\
                 +'</a></li>\n'
