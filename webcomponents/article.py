@@ -17,12 +17,15 @@ def GeneratePageContent(path2article, type='article'):
     html_content = re.search(r'<div id="main-content">(.*?)</div>', html_convert, flags=re.S).group()[len('<div id="main-content">')+1:-len('</div>')-1]
     html_reference = re.search(r'<ol id="reference">(.*?)</ol>', html_convert, flags=re.S).group()[len('<ol id="reference">')+1:-len('</ol>')-1]
     if type == 'article':
+        with open('./cache.json', 'r', encoding='utf-8') as f:
+            info_cache = json.load(f)
         info = {}
         info['title'] = re.search(r'<li id="title">(.*?)</li>', html_info, flags=re.S).group()[len('<li id="title">')+1:-len('</li>')-1]
         info['category'] = re.search(r'<li id="category">(.*?)</li>', html_info, flags=re.S).group()[len('<li id="category">')+1:-len('</li>')-1]
         info['tag'] = re.search(r'<li id="tag">(.*?)</li>', html_info, flags=re.S).group()[len('<li id="tag">')+1:-len('</li>')-1]
         info['date'] = re.search(r'<li id="date">(.*?)</li>', html_info, flags=re.S).group()[len('<li id="date">')+1:-len('</li>')-1]
         info['wordcount'] = re.search(r'<li id="wordcount">(.*?)</li>', html_info, flags=re.S).group()[len('<li id="wordcount">')+1:-len('</li>')-1]
+        info_cache.append(info)
         # construct
         title = '<h1 class="article-title" itemprop="name">{}</h1>'.format(info['title'])
         date = '<span class="article-date"><i class="icon icon-calendar-check"></i><a class="article-date" href="#">'\
@@ -46,9 +49,17 @@ def GeneratePageContent(path2article, type='article'):
         html_page = MainPage(setup, html_article, html_reference)
         with open('./html/{}.html'.format(info['title']), 'w', encoding='utf-8') as f:
             f.write(html_page.web)
+        with open('cache.json', 'w', encoding='utf-8') as f:
+            json.dump(info_cache, f, indent=4)
     elif type == 'linkpage':
-        pass
+        info = {}
+        info['title'] = re.search(r'<li id="title">(.*?)</li>', html_info, flags=re.S).group()[len('<li id="title">')+1:-len('</li>')-1]
+        html_article = '<div class="content"><article id="post-linkpage" class="article article-type-post" itemscope=""itemtype="http://schema.org/BlogPosting">'+html_content\
+            +'</article></div>'
+        html_page = MainPage(setup, html_article)
+        with open('./{}.html'.format(info['title']), 'w', encoding='utf-8') as f:
+            f.write(html_page.web)
     else:
         pass
 
-GeneratePageContent('./markdown/template.md')
+# GeneratePageContent('./markdown/template.md')
