@@ -2,9 +2,10 @@ import json
 from bs4 import BeautifulSoup, formatter
 
 class MainPage():
-    def __init__(self, setup:dict, article:str=""):
+    def __init__(self, setup:dict, article:str="", reference:str=""):
         self.setup = setup
         self.article = article
+        self.reference = reference
         soup = BeautifulSoup(self.__Web(), 'html.parser')
         self.web = soup.prettify(formatter=formatter.HTMLFormatter(indent=4))
     
@@ -80,7 +81,10 @@ class MainPage():
 
     def __BodyAside(self):
         title = '<h3 class="widget-title">{}</h3>'.format(self.setup['Info']['AsideTitle'])
-        content = '<div class="widget-body"><div id="board"><div class="content">{}</div></div></div>'.format(self.setup['Info']['AsideContent'])
+        if self.reference == "":
+            content = '<div class="widget-body"><div id="board"><div class="content">{}</div></div></div>'.format(self.setup['Info']['AsideContent'])
+        else:
+            content = '<div class="widget-body"><div id="board"><div class="content">{}</div></div></div>'.format(self.reference)
         widget = '<div class="slimContent" style="overflow: hidden; width: auto; height: 815px;">'\
             +'<div class="widget">'+title+content+'</div></div>'
         slimScrollBar = '<div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.15); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 436.99px;"></div>'
