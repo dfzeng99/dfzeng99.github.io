@@ -80,10 +80,11 @@ class MainPage():
         return temp
 
     def __BodyAside(self):
-        title = '<h3 class="widget-title">{}</h3>'.format(self.setup['Info']['AsideTitle'])
         if self.reference == "":
+            title = '<h3 class="widget-title">{}</h3>'.format(self.setup['Info']['AsideTitle'])
             content = '<div class="widget-body"><div id="board"><div class="content">{}</div></div></div>'.format(self.setup['Info']['AsideContent'])
         else:
+            title = '<h3 class="widget-title">{}</h3>'.format("参考资料")
             content = '<div class="widget-body"><div id="board"><div class="content">{}</div></div></div>'.format(self.reference)
         widget = '<div class="slimContent" style="overflow: hidden; width: auto; height: 815px;">'\
             +'<div class="widget">'+title+content+'</div></div>'

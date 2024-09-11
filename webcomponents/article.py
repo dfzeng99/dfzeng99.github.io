@@ -62,4 +62,4 @@ def GeneratePageContent(path2article, type='article'):
     else:
         pass
 
-# GeneratePageContent('./markdown/template.md')
+# GeneratePageContent('./markdown/矩阵行列式求导以及矩阵的逆的求导.md')
