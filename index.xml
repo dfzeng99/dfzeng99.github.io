@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Fly的博客</title>
+        <link>http://localhost:1313/</link>
+        <description>Recent content on Fly的博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Louis Zeng</copyright>
+        <lastBuildDate>Sun, 27 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>About</title>
+        <link>http://localhost:1313/about/</link>
+        <pubDate>Sun, 27 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/about/</guid>
+        <description>&lt;p&gt;一位喜欢编程的数学博士生&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Euler-Lagrange方程</title>
+        <link>http://localhost:1313/p/euler-lagrange%E6%96%B9%E7%A8%8B/</link>
+        <pubDate>Fri, 20 Sep 2024 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/euler-lagrange%E6%96%B9%E7%A8%8B/</guid>
+        <description>&lt;h2 id=&#34;一引入最速降线&#34;&gt;一、引入：最速降线
+&lt;/h2&gt;&lt;p&gt;假设 $A(x_1, y_1)$ 和 $B(x_2, y_2)$ 点之间的垂直高度为$h$，目标是寻找小球从 $A$ 点下降到 $B$ 点用时最短的路径，这里设定一些基本的物理假设：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;小球视为质点;&lt;/li&gt;
+&lt;li&gt;不计任何阻力;&lt;/li&gt;
+&lt;li&gt;建立直角坐标系 $x-y$ ，下降轨迹为 $y = y(x)$ ;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;(1)&lt;/strong&gt; 基于能量守恒定律，有&lt;/p&gt;
+$$
+mgy = \frac{1}{2}mv^2 \to v=\sqrt{2gy}.
+$$&lt;p&gt;&lt;strong&gt;(2)&lt;/strong&gt; 利用速度的定义，有&lt;/p&gt;
+$$
+dt = \frac{\mathrm{d}s}{v}=\frac{\sqrt{\mathrm{d}x^2+\mathrm{d}y^2}}{\sqrt{2gy}}=\frac{\sqrt{1+|y^{\prime}|^2}}{\sqrt{2gy}}\mathrm{d}x,
+$$&lt;p&gt;左右积分得到&lt;/p&gt;
+$$
+t = t(x, y, y^{\prime}) = \int_{x_1}^{x_2}\frac{\sqrt{1+|y^{\prime}|^2}}{\sqrt{2gy}}\mathrm{d}x. \tag{1}
+$$&lt;p&gt;以上(1)式定义了时间关于路径函数的泛函，我们要找最速降线只需要找到使得(1)式最小的路径函数 $y(x)$ 即可.&lt;/p&gt;
+&lt;h2 id=&#34;二变分法与euler-lagrange方程&#34;&gt;二、变分法与Euler-Lagrange方程
+&lt;/h2&gt;&lt;p&gt;目标：寻找函数 $y^*$ ，使得&lt;/p&gt;
+$$
+y^* = \underset{y}{\arg\min}\ t(x, y, y^{\prime}).
+$$&lt;p&gt;记 $Y = y + \epsilon \delta(x)$ ，这里 $\delta(x)$ 为偏移/扰动/变分，满足&lt;/p&gt;
+$$
+\delta(x):[x_1, x_2]\to \mathbb{R}, \text{and}\ \delta(x_1)=\delta(x_2)=0.
+$$&lt;p&gt;于是我们将泛函运算转变为函数运算，由于&lt;/p&gt;
+$$
+\frac{\mathrm{d}Y}{\mathrm{d}\epsilon} = \delta(x), \ \frac{\mathrm{d}Y^{\prime}}{\mathrm{d}\epsilon} = \delta^{\prime}(x) \to Y^{\prime}=y^{\prime}(x) + \epsilon\delta^{\prime}(x),
+$$&lt;p&gt;记 $I(\epsilon) = t(x, Y, Y^{\prime})$，目标转化为寻找 $y$ 使得 $I^{\prime}(\epsilon)|_{\epsilon=0}=0$.&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{\mathrm{d}I}{\mathrm{d}\epsilon} &amp;= \int_{x_1}^{x_2}\frac{\partial F}{\partial y}\frac{\partial Y}{\partial \epsilon} + \frac{\partial F}{\partial y^{\prime}}\frac{\partial Y^{\prime}}{\partial \epsilon} \mathrm{d}x\\
+&amp;=\int_{x_1}^{x_2}\frac{\partial F}{\partial y}\delta(x)+\frac{\partial F}{\partial y^{\prime}}\delta^{\prime}(x)\mathrm{d}x\\
+&amp;=\int_{x_1}^{x_2}\left[\frac{\partial F}{\partial y}-\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\partial F}{\partial y^{\prime}}\right)\right]\delta(x)\mathrm{d}x,
+\end{aligned}
+$$&lt;p&gt;由于 $\delta(x)$ 的任意性，于是有&lt;/p&gt;
+$$
+\frac{\partial F}{\partial y}-\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\partial F}{\partial y^{\prime}}\right) = 0.
+$$</description>
+        </item>
+        <item>
+        <title>矩阵行列式求导以及矩阵的逆的求导</title>
+        <link>http://localhost:1313/p/%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E5%AF%BC%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86%E7%9A%84%E6%B1%82%E5%AF%BC/</link>
+        <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E5%AF%BC%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86%E7%9A%84%E6%B1%82%E5%AF%BC/</guid>
+        <description>&lt;h2 id=&#34;结论&#34;&gt;结论
+&lt;/h2&gt;&lt;p&gt;设$A=(a_{ij}(t))_{n\times n}$，&lt;/p&gt;
+$$
+\begin{aligned}
+&amp;\frac{d |A|}{dt} =|A|tr\left(A^{-1}\frac{dA}{dt}\right)\\
+&amp;\frac{d A^{-1}}{dt} = -A^{-1} \frac{d A}{dt} A^{-1} 
+\end{aligned}
+$$&lt;p&gt;以下两节给一个简要的推导，可能并不严格。&lt;/p&gt;
+&lt;h2 id=&#34;矩阵的行列式求导&#34;&gt;矩阵的行列式求导
+&lt;/h2&gt;&lt;p&gt;根据链式法则，&lt;/p&gt;
+$$
+\frac{d |A|}{dt} = \sum_{i}\sum_{j}\frac{\partial |A|}{\partial a_{ij}}\frac{d a_{ij}}{dt}
+$$&lt;p&gt;我们注意到，&lt;/p&gt;
+$$
+\frac{\partial |A|}{\partial a_{ij}} = \lim_{\varepsilon \rightarrow 0} \frac{|A + \varepsilon I_{ij}| - |A|}{\varepsilon} = \lim_{\varepsilon \rightarrow 0} \frac{\varepsilon A_{ij}}{\varepsilon} = A_{ij}
+$$&lt;p&gt;其中，$I_{ij}$为只有$(i,j)$元是1，其他都是0的矩阵，$A_{ij}$表示矩阵$A$在$(i,j)$处的代数余子式。于是链式法则求得的式子变为如下形式，&lt;/p&gt;
+$$
+\frac{d |A|}{dt} = \sum_{i}\sum_{j}A_{ij}\frac{d a_{ij}}{dt}
+$$&lt;p&gt;又由，&lt;/p&gt;
+$$
+\begin{aligned}
+&amp;\frac{da_{ij}}{dt} = \left(\frac{dA}{dt}\right)_{ij} \\
+&amp;A^*A = |A|I_n \Rightarrow  A^* = |A|A^{-1}\Rightarrow A_{ij} = |A|\left(A^{-1}\right)_{ji}
+\end{aligned}
+$$&lt;p&gt;其中$A^*$为$A$的伴随矩阵，则有，&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{d |A|}{dt} &amp;= \sum_{i}\sum_{j}A_{ij}\frac{d a_{ij}}{dt}\\
+&amp;=\sum_{j}\sum_{i}|A|\left(A^{-1}\right)_{ji}\left(\frac{dA}{dt}\right)_{ij}\\
+&amp;= |A|\sum_{j}\left(A^{-1}\frac{dA}{dt}\right)_{jj}\\
+&amp;=|A|tr\left(A^{-1}\frac{dA}{dt}\right)
+\end{aligned}
+$$&lt;h2 id=&#34;矩阵的逆的导数&#34;&gt;矩阵的逆的导数
+&lt;/h2&gt;&lt;p&gt;首先，&lt;/p&gt;
+$$
+\mathbf{0}_{n\times n} = \frac{\partial I_n}{\partial t} = \frac{\partial AA^{-1}}{\partial t} = \frac{\partial A}{\partial t}A^{-1} + A\frac{\partial A^{-1}}{\partial t}
+$$&lt;p&gt;则有，&lt;/p&gt;
+$$
+\frac{d A^{-1}}{dt} = -A^{-1} \frac{d A}{dt} A^{-1} 
+$$</description>
+        </item>
+        <item>
+        <title>Archives</title>
+        <link>http://localhost:1313/archives/</link>
+        <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Links</title>
+        <link>http://localhost:1313/links/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/links/</guid>
+        <description>&lt;p&gt;我的一些项目&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Search</title>
+        <link>http://localhost:1313/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

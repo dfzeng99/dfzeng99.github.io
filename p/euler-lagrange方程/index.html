@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.144.2"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Louis Zeng">
-<title>Fly的博客</title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本文通过最速降线的例子引入，推导了变分方法中的Euler-Lagrange方程">
+<title>Euler-Lagrange方程</title>
 
-<link rel='canonical' href='http://localhost:1313/'>
+<link rel='canonical' href='http://localhost:1313/p/euler-lagrange%E6%96%B9%E7%A8%8B/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Fly的博客">
-<meta property='og:description' content="Louis Zeng">
-<meta property='og:url' content='http://localhost:1313/'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Euler-Lagrange方程">
+<meta property='og:description' content="本文通过最速降线的例子引入，推导了变分方法中的Euler-Lagrange方程">
+<meta property='og:url' content='http://localhost:1313/p/euler-lagrange%E6%96%B9%E7%A8%8B/'>
 <meta property='og:site_name' content='Fly的博客'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-04-27T00:00:00&#43;00:00 '/>
-<meta name="twitter:title" content="Fly的博客">
-<meta name="twitter:description" content="Louis Zeng"><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='变分方法' /><meta property='article:published_time' content='2024-09-20T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-09-20T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Euler-Lagrange方程">
+<meta name="twitter:description" content="本文通过最速降线的例子引入，推导了变分方法中的Euler-Lagrange方程">
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -127,7 +128,7 @@
         
         
         
-        <li  class='current' >
+        <li >
             <a href='/' >
                 
                 
@@ -255,69 +256,10 @@
     <aside class="sidebar right-sidebar sticky">
         
             
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>搜索</label>
-            <input name="keyword" required placeholder="输入关键词..." />
-        
-            <button title="搜索">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget archives">
+                
+    <section class="widget archives">
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">归档</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2024">
-                        
-                            <span class="year">2024</span>
-                            <span class="count">1</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2023">
-                        
-                            <span class="year">2023</span>
-                            <span class="count">1</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <line x1="5" y1="9" x2="19" y2="9" />
   <line x1="5" y1="15" x2="19" y2="15" />
@@ -327,61 +269,26 @@
 
 
 
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
-
-    <div class="tagCloud-tags">
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
         
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%95%B0%E5%AD%A6/" class="font_size_2">
-                计算数学
-            </a>
-        
-    </div>
-</section>
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一引入最速降线">一、引入：最速降线</a></li>
+    <li><a href="#二变分法与euler-lagrange方程">二、变分法与Euler-Lagrange方程</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
 
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
-  <circle cx="9" cy="9" r="2" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">标签云</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/tags/%E5%8F%98%E5%88%86%E6%96%B9%E6%B3%95/" class="font_size_1">
-                变分方法
-            </a>
-        
-            <a href="/tags/%E6%95%B0%E5%80%BC%E4%BB%A3%E6%95%B0/" class="font_size_1">
-                数值代数
-            </a>
-        
-    </div>
-</section>
             
         
     </aside>
 
 
             <main class="main full-width">
-    
-    
-    
-    
-
-    <section class="article-list">
-        
-            
-<article class="">
+    <article class="main-article">
     <header class="article-header">
 
     <div class="article-details">
@@ -449,81 +356,136 @@
 </div>
 
 </header>
-</article>
-        
-            
-<article class="">
-    <header class="article-header">
 
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%95%B0%E5%AD%A6/" >
-                计算数学
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E5%AF%BC%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86%E7%9A%84%E6%B1%82%E5%AF%BC/">矩阵行列式求导以及矩阵的逆的求导</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            本文提供了矩阵行列式和矩阵的逆求导公式的简单推导
-        </h3>
-        
-    </div>
-
+    <section class="article-content">
     
     
+    <h2 id="一引入最速降线">一、引入：最速降线
+</h2><p>假设 $A(x_1, y_1)$ 和 $B(x_2, y_2)$ 点之间的垂直高度为$h$，目标是寻找小球从 $A$ 点下降到 $B$ 点用时最短的路径，这里设定一些基本的物理假设：</p>
+<ul>
+<li>小球视为质点;</li>
+<li>不计任何阻力;</li>
+<li>建立直角坐标系 $x-y$ ，下降轨迹为 $y = y(x)$ ;</li>
+</ul>
+<p><strong>(1)</strong> 基于能量守恒定律，有</p>
+$$
+mgy = \frac{1}{2}mv^2 \to v=\sqrt{2gy}.
+$$<p><strong>(2)</strong> 利用速度的定义，有</p>
+$$
+dt = \frac{\mathrm{d}s}{v}=\frac{\sqrt{\mathrm{d}x^2+\mathrm{d}y^2}}{\sqrt{2gy}}=\frac{\sqrt{1+|y^{\prime}|^2}}{\sqrt{2gy}}\mathrm{d}x,
+$$<p>左右积分得到</p>
+$$
+t = t(x, y, y^{\prime}) = \int_{x_1}^{x_2}\frac{\sqrt{1+|y^{\prime}|^2}}{\sqrt{2gy}}\mathrm{d}x. \tag{1}
+$$<p>以上(1)式定义了时间关于路径函数的泛函，我们要找最速降线只需要找到使得(1)式最小的路径函数 $y(x)$ 即可.</p>
+<h2 id="二变分法与euler-lagrange方程">二、变分法与Euler-Lagrange方程
+</h2><p>目标：寻找函数 $y^*$ ，使得</p>
+$$
+y^* = \underset{y}{\arg\min}\ t(x, y, y^{\prime}).
+$$<p>记 $Y = y + \epsilon \delta(x)$ ，这里 $\delta(x)$ 为偏移/扰动/变分，满足</p>
+$$
+\delta(x):[x_1, x_2]\to \mathbb{R}, \text{and}\ \delta(x_1)=\delta(x_2)=0.
+$$<p>于是我们将泛函运算转变为函数运算，由于</p>
+$$
+\frac{\mathrm{d}Y}{\mathrm{d}\epsilon} = \delta(x), \ \frac{\mathrm{d}Y^{\prime}}{\mathrm{d}\epsilon} = \delta^{\prime}(x) \to Y^{\prime}=y^{\prime}(x) + \epsilon\delta^{\prime}(x),
+$$<p>记 $I(\epsilon) = t(x, Y, Y^{\prime})$，目标转化为寻找 $y$ 使得 $I^{\prime}(\epsilon)|_{\epsilon=0}=0$.</p>
+$$
+\begin{aligned}
+\frac{\mathrm{d}I}{\mathrm{d}\epsilon} &= \int_{x_1}^{x_2}\frac{\partial F}{\partial y}\frac{\partial Y}{\partial \epsilon} + \frac{\partial F}{\partial y^{\prime}}\frac{\partial Y^{\prime}}{\partial \epsilon} \mathrm{d}x\\
+&=\int_{x_1}^{x_2}\frac{\partial F}{\partial y}\delta(x)+\frac{\partial F}{\partial y^{\prime}}\delta^{\prime}(x)\mathrm{d}x\\
+&=\int_{x_1}^{x_2}\left[\frac{\partial F}{\partial y}-\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\partial F}{\partial y^{\prime}}\right)\right]\delta(x)\mathrm{d}x,
+\end{aligned}
+$$<p>由于 $\delta(x)$ 的任意性，于是有</p>
+$$
+\frac{\partial F}{\partial y}-\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\partial F}{\partial y^{\prime}}\right) = 0.
+$$
+</section>
+
+
+    <footer class="article-footer">
     
-    
-    <footer class="article-time">
+    <section class="article-tags">
         
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Feb 09, 2023</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    阅读时长: 1 分钟
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
-</div>
-
-</header>
-</article>
+            <a href="/tags/%E5%8F%98%E5%88%86%E6%96%B9%E6%B3%95/">变分方法</a>
         
     </section>
-<footer class="site-footer">
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="/dist/katex/katex.min.css"crossorigin="anonymous"
+            ><script 
+                src="/dist/katex/katex.min.js"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="/dist/katex/contrib/auto-render.min.js"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E5%AF%BC%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86%E7%9A%84%E6%B1%82%E5%AF%BC/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">矩阵行列式求导以及矩阵的逆的求导</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -537,6 +499,85 @@
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="/dist/photoswipe/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="/dist/photoswipe/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="/dist/photoswipe/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="/dist/photoswipe/photoswipe.min.css"crossorigin="anonymous"
+            >
 
             </main>
         </div>

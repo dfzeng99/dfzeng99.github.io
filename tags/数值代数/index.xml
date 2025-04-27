@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>数值代数 on Fly的博客</title>
+        <link>http://localhost:1313/tags/%E6%95%B0%E5%80%BC%E4%BB%A3%E6%95%B0/</link>
+        <description>Recent content in 数值代数 on Fly的博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Louis Zeng</copyright>
+        <lastBuildDate>Thu, 09 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%B0%E5%80%BC%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>矩阵行列式求导以及矩阵的逆的求导</title>
+        <link>http://localhost:1313/p/%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E5%AF%BC%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86%E7%9A%84%E6%B1%82%E5%AF%BC/</link>
+        <pubDate>Thu, 09 Feb 2023 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/%E7%9F%A9%E9%98%B5%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E5%AF%BC%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86%E7%9A%84%E6%B1%82%E5%AF%BC/</guid>
+        <description>&lt;h2 id=&#34;结论&#34;&gt;结论
+&lt;/h2&gt;&lt;p&gt;设$A=(a_{ij}(t))_{n\times n}$，&lt;/p&gt;
+$$
+\begin{aligned}
+&amp;\frac{d |A|}{dt} =|A|tr\left(A^{-1}\frac{dA}{dt}\right)\\
+&amp;\frac{d A^{-1}}{dt} = -A^{-1} \frac{d A}{dt} A^{-1} 
+\end{aligned}
+$$&lt;p&gt;以下两节给一个简要的推导，可能并不严格。&lt;/p&gt;
+&lt;h2 id=&#34;矩阵的行列式求导&#34;&gt;矩阵的行列式求导
+&lt;/h2&gt;&lt;p&gt;根据链式法则，&lt;/p&gt;
+$$
+\frac{d |A|}{dt} = \sum_{i}\sum_{j}\frac{\partial |A|}{\partial a_{ij}}\frac{d a_{ij}}{dt}
+$$&lt;p&gt;我们注意到，&lt;/p&gt;
+$$
+\frac{\partial |A|}{\partial a_{ij}} = \lim_{\varepsilon \rightarrow 0} \frac{|A + \varepsilon I_{ij}| - |A|}{\varepsilon} = \lim_{\varepsilon \rightarrow 0} \frac{\varepsilon A_{ij}}{\varepsilon} = A_{ij}
+$$&lt;p&gt;其中，$I_{ij}$为只有$(i,j)$元是1，其他都是0的矩阵，$A_{ij}$表示矩阵$A$在$(i,j)$处的代数余子式。于是链式法则求得的式子变为如下形式，&lt;/p&gt;
+$$
+\frac{d |A|}{dt} = \sum_{i}\sum_{j}A_{ij}\frac{d a_{ij}}{dt}
+$$&lt;p&gt;又由，&lt;/p&gt;
+$$
+\begin{aligned}
+&amp;\frac{da_{ij}}{dt} = \left(\frac{dA}{dt}\right)_{ij} \\
+&amp;A^*A = |A|I_n \Rightarrow  A^* = |A|A^{-1}\Rightarrow A_{ij} = |A|\left(A^{-1}\right)_{ji}
+\end{aligned}
+$$&lt;p&gt;其中$A^*$为$A$的伴随矩阵，则有，&lt;/p&gt;
+$$
+\begin{aligned}
+\frac{d |A|}{dt} &amp;= \sum_{i}\sum_{j}A_{ij}\frac{d a_{ij}}{dt}\\
+&amp;=\sum_{j}\sum_{i}|A|\left(A^{-1}\right)_{ji}\left(\frac{dA}{dt}\right)_{ij}\\
+&amp;= |A|\sum_{j}\left(A^{-1}\frac{dA}{dt}\right)_{jj}\\
+&amp;=|A|tr\left(A^{-1}\frac{dA}{dt}\right)
+\end{aligned}
+$$&lt;h2 id=&#34;矩阵的逆的导数&#34;&gt;矩阵的逆的导数
+&lt;/h2&gt;&lt;p&gt;首先，&lt;/p&gt;
+$$
+\mathbf{0}_{n\times n} = \frac{\partial I_n}{\partial t} = \frac{\partial AA^{-1}}{\partial t} = \frac{\partial A}{\partial t}A^{-1} + A\frac{\partial A^{-1}}{\partial t}
+$$&lt;p&gt;则有，&lt;/p&gt;
+$$
+\frac{d A^{-1}}{dt} = -A^{-1} \frac{d A}{dt} A^{-1} 
+$$</description>
+        </item>
+        
+    </channel>
+</rss>
